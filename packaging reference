@@ -1,0 +1,24 @@
+Making packaging form shell script
+
+-> This is being done in debian9
+-> Needed tools for packaging dh_make,debuild and to install type in terminal
+-> apt install dh-make devscripts
+-> cat >>~/.bashrc<<EOF
+-> DEBEMAIL=”YOUR MAIL OR ORGANIZATION MAIL”
+-> DEBFULLNAME=”YOUR NAME OR ORGANIZATION NAME”
+-> export DEBEMAIL DEBFULLNAME
+-> EOF
+-> run ~/.bashrc only once
+
+-> create a simple shell script
+-> write “mkdir /home/sample\ folder” in create(it is a file) 
+-> mkdir package-version-0.0
+-> cd package-version-0.0
+-> dh_make --indep --createorig
+-> gedit debian/install
+-> hello.sh /usr/bin
+-> again run
+-> dh_make --indep --createorig
+-> a tar.gz file while come as output which will be located at the folder above this. 
+-> debuild  -uc -us
+-> after this some files are formed in the folder above this
