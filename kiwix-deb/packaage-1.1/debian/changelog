@@ -1,0 +1,5 @@
+packaage (1.1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Srikanth <srikanth@hacker>  Fri, 06 Oct 2017 10:30:07 +0530

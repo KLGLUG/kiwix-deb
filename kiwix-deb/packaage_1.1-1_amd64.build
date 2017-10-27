@@ -1,0 +1,129 @@
+ dpkg-buildpackage -rfakeroot -us -uc
+dpkg-buildpackage: info: source package packaage
+dpkg-buildpackage: info: source version 1.1-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Srikanth <srikanth@hacker>
+ dpkg-source --before-build packaage-1.1
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b packaage-1.1
+dpkg-source: info: using source format '3.0 (quilt)'
+dpkg-source: info: building packaage using existing ./packaage_1.1.orig.tar.xz
+dpkg-source: info: building packaage in packaage_1.1-1.debian.tar.xz
+dpkg-source: info: building packaage in packaage_1.1-1.dsc
+ debian/rules build
+dh build
+   dh_testdir
+   dh_update_autotools_config
+   dh_auto_configure
+   dh_auto_build
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot
+   dh_prep
+   dh_auto_install
+   dh_install
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'packaage' in '../packaage_1.1-1_all.deb'.
+ dpkg-genbuildinfo
+ dpkg-genchanges  >../packaage_1.1-1_amd64.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --after-build packaage-1.1
+dpkg-buildpackage: info: full upload (original source is included)
+Now running lintian...
+E: packaage changes: changed-by-address-malformed Srikanth <srikanth@hacker>
+E: packaage source: source-is-missing kiwix
+E: packaage source: source-is-missing bin/aria2c
+E: packaage source: source-is-missing bin/kiwix-index
+E: packaage source: source-is-missing bin/kiwix-install
+E: packaage source: source-is-missing bin/kiwix-manage
+E: packaage source: source-is-missing bin/kiwix-read
+E: packaage source: source-is-missing bin/kiwix-search
+E: packaage source: source-is-missing bin/kiwix-serve
+E: packaage source: source-is-missing bin/xapian-compact
+E: packaage source: source-is-missing components/contentManager.so
+E: packaage source: source-is-missing components/serverManager.so
+E: packaage source: source-is-missing components/xapianAccessor.so
+E: packaage source: source-is-missing components/zimAccessor.so
+E: packaage source: source-is-missing components/zimXapianIndexer.so
+E: packaage source: source-is-missing xulrunner/libctpp2.so
+E: packaage source: source-is-missing xulrunner/libfreebl3.so
+E: packaage source: source-is-missing xulrunner/libicudata.so
+E: packaage source: source-is-missing xulrunner/libicui18n.so
+E: packaage source: source-is-missing xulrunner/libicuuc.so
+E: packaage source: source-is-missing xulrunner/liblzma.so
+E: packaage source: source-is-missing xulrunner/libmozalloc.so
+E: packaage source: source-is-missing xulrunner/libmozsqlite3.so
+E: packaage source: source-is-missing xulrunner/libnspr4.so
+E: packaage source: source-is-missing xulrunner/libnspr4.so.0d
+E: packaage source: source-is-missing xulrunner/libnss3.so
+E: packaage source: source-is-missing xulrunner/libnssckbi.so
+E: packaage source: source-is-missing xulrunner/libnssdbm3.so
+E: packaage source: source-is-missing xulrunner/libnssutil3.so
+E: packaage source: source-is-missing xulrunner/libplc4.so
+E: packaage source: source-is-missing xulrunner/libplc4.so.0d
+E: packaage source: source-is-missing xulrunner/libplds4.so
+E: packaage source: source-is-missing xulrunner/libplds4.so.0d
+E: packaage source: source-is-missing xulrunner/libpugixml.so
+E: packaage source: source-is-missing xulrunner/libsmime3.so
+E: packaage source: source-is-missing xulrunner/libsoftokn3.so
+E: packaage source: source-is-missing xulrunner/libssl3.so
+E: packaage source: source-is-missing xulrunner/libxapian.so
+E: packaage source: source-is-missing xulrunner/libxul.so
+E: packaage source: source-is-missing xulrunner/libz.so
+E: packaage source: source-is-missing xulrunner/libzim.so
+E: packaage source: source-is-missing xulrunner/xulrunner
+E: packaage source: source-is-missing xulrunner/components/libdbusservice.so
+E: packaage source: source-is-missing xulrunner/components/libmozgnome.so
+W: packaage source: dh-make-template-in-source debian/manpage.1.ex
+W: packaage source: dh-make-template-in-source debian/manpage.sgml.ex
+W: packaage source: dh-make-template-in-source debian/manpage.xml.ex
+W: packaage source: dh-make-template-in-source debian/menu.ex
+W: packaage source: dh-make-template-in-source debian/packaage.cron.d.ex
+W: packaage source: dh-make-template-in-source debian/packaage.default.ex
+W: packaage source: dh-make-template-in-source debian/packaage.doc-base.EX
+W: packaage source: dh-make-template-in-source debian/postinst.ex
+W: packaage source: dh-make-template-in-source debian/postrm.ex
+W: packaage source: dh-make-template-in-source debian/preinst.ex
+W: packaage source: dh-make-template-in-source debian/prerm.ex
+W: packaage source: dh-make-template-in-source debian/watch.ex
+E: packaage source: maintainer-address-malformed Srikanth <srikanth@hacker>
+W: packaage source: superfluous-clutter-in-homepage <insert the upstream URL, if relevant>
+W: packaage source: bad-homepage <insert the upstream URL, if relevant>
+W: packaage source: space-in-std-shortname-in-dep5-copyright <special license> (paragraph at line 5)
+E: packaage: arch-independent-package-contains-binary-or-object usr/bin/kiwix
+E: packaage: unstripped-binary-or-object usr/bin/kiwix
+E: packaage: embedded-library usr/bin/kiwix: libm
+E: packaage: statically-linked-binary usr/bin/kiwix
+W: packaage: wrong-bug-number-in-closes l3:#nnnn
+E: packaage: debian-changelog-file-contains-invalid-email-address srikanth@hacker
+W: packaage: new-package-should-close-itp-bug
+E: packaage: changelog-is-dh_make-template
+E: packaage: helper-templates-in-copyright
+W: packaage: copyright-has-url-from-dh_make-boilerplate
+E: packaage: copyright-contains-dh_make-todo-boilerplate
+W: packaage: readme-debian-contains-debmake-template
+E: packaage: description-is-dh_make-template
+E: packaage: maintainer-address-malformed Srikanth <srikanth@hacker>
+E: packaage: section-is-dh_make-template
+W: packaage: superfluous-clutter-in-homepage <insert the upstream URL, if relevant>
+W: packaage: bad-homepage <insert the upstream URL, if relevant>
+W: packaage: binary-without-manpage usr/bin/kiwix
+Finished running lintian.
